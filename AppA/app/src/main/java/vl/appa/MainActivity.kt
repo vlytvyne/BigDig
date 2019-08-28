@@ -12,7 +12,9 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
-        viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
+		setSupportActionBar(toolbar)
+
+		viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
 
 		tabLayout.setupWithViewPager(viewPager)
 	}
@@ -21,20 +23,20 @@ class MainActivity : AppCompatActivity() {
 
 private class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-    override fun getItem(position: Int) =
-        when (position) {
-            0 -> TestFragment.newInstance()
-            1 -> HistoryFragment.newInstance()
-            else -> throw Exception("Out of items")
-        }
+	override fun getItem(position: Int) =
+		when (position) {
+			0 -> TestFragment.newInstance()
+			1 -> HistoryFragment.newInstance()
+			else -> throw Exception("Out of items")
+		}
 
-    override fun getPageTitle(position: Int) =
-        when (position) {
-            0 -> "Test"
-            1 -> "History"
-            else -> throw Exception("Out of items")
-        }
+	override fun getPageTitle(position: Int) =
+		when (position) {
+			0 -> "Test"
+			1 -> "History"
+			else -> throw Exception("Out of items")
+		}
 
 
-    override fun getCount() = 2
+	override fun getCount() = 2
 }
