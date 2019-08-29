@@ -1,5 +1,6 @@
 package vl.appb
 
+import android.database.Cursor
 import androidx.room.*
 import io.reactivex.Single
 
@@ -7,7 +8,7 @@ import io.reactivex.Single
 interface ImageUrlDao {
 
     @Query("SELECT * FROM image_urls")
-    fun getAllEntries(): Single<List<ImageUrl>>
+    fun getAllEntries(): Cursor
 
     @Insert
     fun insert(imageUrl: ImageUrl)

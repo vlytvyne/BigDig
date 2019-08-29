@@ -15,9 +15,6 @@ import vl.appb.AppB.Companion.database
 import java.util.*
 
 const val KEY_IMAGE_URL = "imageUrl"
-const val STATUS_OK = 1
-const val STATUS_ERROR = 2
-const val STATUS_UNDEFINED = 3
 
 class ReceiverActivity : AppCompatActivity() {
 
@@ -30,23 +27,17 @@ class ReceiverActivity : AppCompatActivity() {
 									 target: Target<Drawable>?,
 									 dataSource: DataSource?,
 									 isFirstResource: Boolean): Boolean {
-			val imageUrl = ImageUrl(url, STATUS_OK, unitTimeStamp)
-			Single.fromCallable {database.imageUrlDao().insert(imageUrl)}
-				.subscribeOn(Schedulers.io())
-				.subscribe()
-			image.setImageDrawable(resource)
+
+			OfflineRepository.insertLoadedUrl(url, unitTimeStamp)
 			return true
 		}
 
-		override fun onLoadFailed(
-			e: GlideException?,
-			model: Any?,
-			target: Target<Drawable>?,
-			isFirstResource: Boolean): Boolean {
-			val imageUrl = ImageUrl(url, STATUS_ERROR, unitTimeStamp)
-			Single.fromCallable {database.imageUrlDao().insert(imageUrl)}
-				.subscribeOn(Schedulers.io())
-				.subscribe()
+		override fun onLoadFailed(e: GlideException?,
+								  model: Any?,
+								  target: Target<Drawable>?,
+								  isFirstResource: Boolean): Boolean {
+
+			OfflineRepository.insertErrorUrl(url, unitTimeStamp)
 			return true
 		}
 	}

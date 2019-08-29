@@ -14,6 +14,12 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme"
 		>
+
+		<provider
+			android:authorities="vl.appb.provider"
+			android:name=".AppBContentProvider"
+			android:exported="true"/>
+
 		<activity
 			android:name=".ReceiverActivity">
 			<intent-filter>
