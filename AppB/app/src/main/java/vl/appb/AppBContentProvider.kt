@@ -1,6 +1,7 @@
 package vl.appb
 
 import android.content.ContentProvider
+import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
@@ -18,6 +19,8 @@ const val URI_IMAGE_URLS = 1
 
 class AppBContentProvider: ContentProvider() {
 
+	val imagesUrlsContentUri = Uri.parse(IMAGE_URLS_CONTENT_URI)
+
 	val uriMatcher = UriMatcher(UriMatcher.NO_MATCH).apply {
 		addURI(AUTHORITY, IMAGE_URLS_PATH, URI_IMAGE_URLS)
 	}
@@ -32,12 +35,16 @@ class AppBContentProvider: ContentProvider() {
 					   selectionArgs: Array<out String>?,
 					   sortOrder: String?): Cursor? =
 		if (uriMatcher.match(uri) == URI_IMAGE_URLS) {
-			OfflineRepository.getAllEntries()
+			val cursor = OfflineRepository.getAllEntries()
+			contentResolver = context!!.contentResolver
+			cursor
 		} else {
 			null
 		}
 
-	override fun insert(uri: Uri, values: ContentValues?): Uri? = null
+	override fun insert(uri: Uri, values: ContentValues?): Uri? {
+		return null
+	}
 
 	override fun update(uri: Uri,
 						values: ContentValues?,
@@ -54,4 +61,8 @@ class AppBContentProvider: ContentProvider() {
 		} else {
 			null
 		}
+
+	companion object {
+		var contentResolver: ContentResolver? = null
+	}
 }
