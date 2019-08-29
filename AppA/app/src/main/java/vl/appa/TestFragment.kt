@@ -1,6 +1,5 @@
 package vl.appa
 
-
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -27,7 +26,7 @@ class TestFragment : Fragment() {
 		val intent = Intent()
 		intent.action = "vl.appb.SHOW_IMAGE"
 		intent.putExtra("imageUrl", url)
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
 		startActivity(intent)
 	}
 

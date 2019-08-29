@@ -29,14 +29,15 @@ class HistoryFragment : Fragment() {
 			object : ContentObserver(Handler()) {
 				override fun onChange(selfChange: Boolean) {
 					super.onChange(selfChange)
+					Log.d("TAG", "onChange")
 					//db changed
 				}
 			})
-		while (cursor.moveToNext()) {
-			val data = cursor.getString(cursor.getColumnIndex("url"))
-			Log.d("TAG", "$data\n")
-		}
-		cursor.close()
+//		while (cursor.moveToNext()) {
+//			val data = cursor.getString(cursor.getColumnIndex("url"))
+//			Log.d("TAG", "$data\n")
+//		}
+//		cursor.close()
 	}
 	override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
 		inflater?.inflate(R.menu.history, menu)

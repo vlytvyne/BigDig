@@ -3,6 +3,7 @@ package vl.appb
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -28,6 +29,7 @@ class ReceiverActivity : AppCompatActivity() {
 									 dataSource: DataSource?,
 									 isFirstResource: Boolean): Boolean {
 
+			image.setImageDrawable(resource)
 			OfflineRepository.insertLoadedUrl(url, unitTimeStamp)
 			return true
 		}
@@ -46,12 +48,18 @@ class ReceiverActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_receiver)
 
+	}
+
+	override fun onStart() {
+		super.onStart()
+
 		url = intent.getStringExtra(KEY_IMAGE_URL)
 		textUrl.text = url
 
 		Glide.with(this)
-			.load(url)
-			.listener(loadingListener)
-			.into(image)
+				.load(url)
+				.listener(loadingListener)
+				.into(image)
 	}
+
 }
