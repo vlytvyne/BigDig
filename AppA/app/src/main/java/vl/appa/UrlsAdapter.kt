@@ -10,6 +10,10 @@ import java.util.*
 class UrlsAdapter(): RecyclerView.Adapter<UrlVH>() {
 
 	var cursor: Cursor? = null
+		set(value) {
+			field = value
+			notifyDataSetChanged()
+		}
 
 	private val dateFormatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)
 
@@ -31,7 +35,6 @@ class UrlsAdapter(): RecyclerView.Adapter<UrlVH>() {
 		val status = cursor.getInt(cursor.getColumnIndex(COLUMN_STATUS))
 		val unixTimeStamp = cursor.getLong(cursor.getColumnIndex(COLUMN_TIMESTAMP))
 		val formattedDate = dateFormatter.format(unixTimeStamp * 1000)
-		Log.d("TAG", "Unix: $unixTimeStamp, date: ${Date(unixTimeStamp).time / 1000}")
 		return ImageUrl(url, status, formattedDate)
 	}
 

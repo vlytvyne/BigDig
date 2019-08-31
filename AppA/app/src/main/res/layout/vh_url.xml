@@ -13,7 +13,7 @@
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:background="@{imageUrl.status == CommonConstantsKt.STATUS_OK ? @color/urlStatusDownloaded : @color/urlStatusError}"
+    android:background="@{imageUrl.status == CommonConstantsKt.STATUS_DOWNLOADED ? @color/urlStatusDownloaded : @color/urlStatusError}"
     android:layout_width="match_parent"
     android:layout_height="72dp"
     tools:background="@color/urlStatusDownloaded">

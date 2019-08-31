@@ -3,7 +3,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	>
 	<item
-		android:id="@+id/action_filter"
+		android:id="@+id/toolbar_filter"
 		android:orderInCategory="200"
 		android:title="@string/btn_toolbar_filter"
 		android:icon="@drawable/ic_toolbar_filter"

@@ -10,7 +10,7 @@ const val IMAGE_URLS_CONTENT_URI = "content://$AUTHORITY/$IMAGE_URLS_PATH"
 
 const val INTENT_ACTION_SHOW_IMAGE = "vl.appb.SHOW_IMAGE"
 
-const val STATUS_OK = 1
+const val STATUS_DOWNLOADED = 1
 const val STATUS_ERROR = 2
 const val STATUS_UNDEFINED = 3
 
