@@ -18,14 +18,18 @@ class TestFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		button.setOnClickListener {
-			showImage(editTextUrl.text.toString())
+			if (editTextUrl.text.isNullOrBlank()) {
+				textInputLayout.error = "This field can't be blank"
+			} else {
+				showImage(editTextUrl.text.toString())
+			}
 		}
 	}
 
 	private fun showImage(url: String) {
 		val intent = Intent()
-		intent.action = "vl.appb.SHOW_IMAGE"
-		intent.putExtra("imageUrl", url)
+		intent.action = INTENT_ACTION_SHOW_IMAGE
+		intent.putExtra(INTENT_KEY_IMAGE_URL, url)
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
 		startActivity(intent)
 	}

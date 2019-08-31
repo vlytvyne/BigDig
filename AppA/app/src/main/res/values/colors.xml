@@ -3,4 +3,8 @@
     <color name="colorPrimary">#42A5F5</color>
     <color name="colorPrimaryDark">#1E88E5</color>
     <color name="colorAccent">#EC407A</color>
+    
+    <color name="urlStatusDownloaded">#A5D6A7</color>
+    <color name="urlStatusError">#EF9A9A</color>
+    <color name="urlStatusUndefined">#B9BBCC</color>
 </resources>

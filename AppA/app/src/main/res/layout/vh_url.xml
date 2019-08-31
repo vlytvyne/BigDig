@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="imageUrl"
+            type="vl.appa.ImageUrl"
+            />
+        <import type="vl.appa.CommonConstantsKt"/>
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@{imageUrl.status == CommonConstantsKt.STATUS_OK ? @color/urlStatusDownloaded : @color/urlStatusError}"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    tools:background="@color/urlStatusDownloaded">
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:text="@{imageUrl.openTime}"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12 Oct 2019, 12:00"
+        />
+
+    <TextView
+        android:id="@+id/textViewUrl"
+        android:text="@{imageUrl.url}"
+        android:textColor="@android:color/white"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTime"
+        tools:text="https://miro.medium.com/max/1024/1*rRBDobIFt9rpMLtab6Rbsw.jpegAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

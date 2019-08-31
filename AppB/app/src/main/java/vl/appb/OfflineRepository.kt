@@ -1,18 +1,14 @@
 package vl.appb
 
+import android.content.ContentResolver
 import android.database.Cursor
 import android.net.Uri
-import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
 import vl.appb.AppB.Companion.database
-import vl.appb.AppBContentProvider.Companion.contentResolver
 import kotlin.concurrent.thread
 
-const val STATUS_OK = 1
-const val STATUS_ERROR = 2
-const val STATUS_UNDEFINED = 3
-
 object OfflineRepository {
+
+	var contentResolver: ContentResolver? = null
 
 	fun getAllEntries(): Cursor {
 		return database.imageUrlDao().getAllEntries()
@@ -38,11 +34,11 @@ object OfflineRepository {
 	}
 
 	fun update(imageUrl: ImageUrl) {
-		thread { update(imageUrl) }
+		thread { database.imageUrlDao().update(imageUrl) }
 	}
 
 	fun delete(imageUrl: ImageUrl) {
-		thread { delete(imageUrl) }
+		thread { database.imageUrlDao().delete(imageUrl) }
 	}
 
 //	private fun decorateCall(func: ImageUrlDao.() -> Unit) {

@@ -15,11 +15,9 @@ import kotlinx.android.synthetic.main.activity_receiver.*
 import vl.appb.AppB.Companion.database
 import java.util.*
 
-const val KEY_IMAGE_URL = "imageUrl"
-
 class ReceiverActivity : AppCompatActivity() {
 
-	val unitTimeStamp = Date().time / 1000
+	val unixTimeStamp = Date().time / 1000
 	lateinit var url: String
 
 	private val loadingListener = object : RequestListener<Drawable> {
@@ -30,7 +28,7 @@ class ReceiverActivity : AppCompatActivity() {
 									 isFirstResource: Boolean): Boolean {
 
 			image.setImageDrawable(resource)
-			OfflineRepository.insertLoadedUrl(url, unitTimeStamp)
+			OfflineRepository.insertLoadedUrl(url, unixTimeStamp)
 			return true
 		}
 
@@ -39,7 +37,7 @@ class ReceiverActivity : AppCompatActivity() {
 								  target: Target<Drawable>?,
 								  isFirstResource: Boolean): Boolean {
 
-			OfflineRepository.insertErrorUrl(url, unitTimeStamp)
+			OfflineRepository.insertErrorUrl(url, unixTimeStamp)
 			return true
 		}
 	}
@@ -48,12 +46,13 @@ class ReceiverActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_receiver)
 
+		if (intent.action == INTENT_ACTION_SHOW_IMAGE) {
+			loadImage()
+		}
 	}
 
-	override fun onStart() {
-		super.onStart()
-
-		url = intent.getStringExtra(KEY_IMAGE_URL)
+	private fun loadImage() {
+		url = intent.getStringExtra(INTENT_KEY_IMAGE_URL)!!
 		textUrl.text = url
 
 		Glide.with(this)
