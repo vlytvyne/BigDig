@@ -35,12 +35,18 @@ object OfflineRepository {
 
 	}
 
-	fun update(imageUrl: ImageUrl) {
-		thread { database.imageUrlDao().update(imageUrl) }
+	fun update(status: Int, id: Long) {
+		thread {
+			database.imageUrlDao().update(status, id)
+			contentResolver?.notifyChange(Uri.parse(IMAGE_URLS_CONTENT_URI), null)
+		}
 	}
 
-	fun delete(imageUrl: ImageUrl) {
-		thread { database.imageUrlDao().delete(imageUrl) }
+	fun delete(id: Long) {
+		thread {
+			database.imageUrlDao().delete(id)
+			contentResolver?.notifyChange(Uri.parse(IMAGE_URLS_CONTENT_URI), null)
+		}
 	}
 
 }

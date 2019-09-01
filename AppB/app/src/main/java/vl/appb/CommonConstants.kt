@@ -1,6 +1,8 @@
 package vl.appb
 
 const val INTENT_KEY_IMAGE_URL = "imageUrl"
+const val INTENT_KEY_IMAGE_STATUS = "imageStatus"
+const val INTENT_KEY_IMAGE_ID = "imageID"
 
 const val AUTHORITY = "vl.appb.provider"
 

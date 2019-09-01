@@ -46,7 +46,6 @@ class AppBContentProvider: ContentProvider() {
 		if (sortOrder != null) {
 			builder.append("ORDER BY $sortOrder")
 		}
-		Log.d("TAG", builder.toString())
 		return SimpleSQLiteQuery(builder.toString())
 	}
 

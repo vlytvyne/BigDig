@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="vl.appb"
-	>
+    package="vl.appb">
 
-	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-	<application
-		android:name=".AppB"
-		android:allowBackup="true"
-		android:icon="@mipmap/ic_launcher"
-		android:label="@string/app_name"
-		android:roundIcon="@mipmap/ic_launcher_round"
-		android:supportsRtl="true"
-		android:theme="@style/AppTheme"
-		>
+    <application
+        android:name=".AppB"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <service
+            android:name=".RemoveImageFromDBService"
+            android:enabled="true"
+            android:exported="false" />
 
-		<provider
-			android:authorities="vl.appb.provider"
-			android:name=".AppBContentProvider"
-			android:exported="true"/>
+        <provider
+            android:name=".AppBContentProvider"
+            android:authorities="vl.appb.provider"
+            android:exported="true" />
 
-		<activity
-			android:name=".ReceiverActivity">
-			<intent-filter>
-				<action android:name="vl.appb.SHOW_IMAGE" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
-		<activity android:name=".DirectOpenActivity">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ReceiverActivity">
+            <intent-filter>
+                <action android:name="vl.appb.SHOW_IMAGE" />
 
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
-	</application>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DirectOpenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 
 </manifest>

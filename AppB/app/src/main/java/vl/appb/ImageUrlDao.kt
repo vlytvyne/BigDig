@@ -16,9 +16,9 @@ interface ImageUrlDao {
     @Insert
     fun insert(imageUrl: ImageUrl)
 
-    @Update
-    fun update(imageUrl: ImageUrl)
+    @Query("UPDATE $TABLE_NAME_IMAGE_URLS SET $COLUMN_STATUS = :status WHERE $COLUMN_ID = :id")
+    fun update(status: Int, id: Long)
 
-    @Delete
-    fun delete(imageUrl: ImageUrl)
+    @Query("DELETE FROM $TABLE_NAME_IMAGE_URLS WHERE $COLUMN_ID = :id")
+    fun delete(id: Long)
 }
