@@ -3,7 +3,6 @@ package vl.appb.services
 import android.app.IntentService
 import android.content.Intent
 import android.os.Handler
-import android.util.Log
 import android.widget.Toast
 import vl.appb.R
 import vl.appb.data.constants.INTENT_KEY_IMAGE_ID
@@ -17,7 +16,6 @@ class RemoveUrlFromDBService : IntentService("removeImage") {
 	var handler = Handler()
 
 	override fun onHandleIntent(intent: Intent?) {
-		Log.d("TAG", "SERVICE")
 		intent?.let {
 			val id = intent.getLongExtra(INTENT_KEY_IMAGE_ID, 0)
 			val url = intent.getStringExtra(INTENT_KEY_IMAGE_URL)

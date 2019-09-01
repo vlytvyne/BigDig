@@ -24,7 +24,9 @@
             android:authorities="vl.appb.provider"
             android:exported="true" />
 
-        <activity android:name=".ui.reciever.ReceiverActivity">
+        <activity
+            android:name=".ui.reciever.ReceiverActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="vl.appb.SHOW_IMAGE" />
 
