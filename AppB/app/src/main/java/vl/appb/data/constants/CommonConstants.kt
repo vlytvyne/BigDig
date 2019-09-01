@@ -1,4 +1,4 @@
-package vl.appa
+package vl.appb.data.constants
 
 const val INTENT_KEY_IMAGE_URL = "imageUrl"
 const val INTENT_KEY_IMAGE_STATUS = "imageStatus"

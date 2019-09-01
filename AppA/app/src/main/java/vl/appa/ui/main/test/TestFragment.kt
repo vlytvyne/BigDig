@@ -1,4 +1,4 @@
-package vl.appa
+package vl.appa.ui.main.test
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_test.*
+import vl.appa.R
+import vl.appa.app.AppA.Companion.appContext
+import vl.appa.data.constants.INTENT_ACTION_SHOW_IMAGE
+import vl.appa.data.constants.INTENT_KEY_IMAGE_URL
 
 class TestFragment : Fragment() {
 
@@ -18,11 +22,8 @@ class TestFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		button.setOnClickListener {
-			if (editTextUrl.text.isNullOrBlank()) {
-				textInputLayout.error = "This field can't be blank"
-			} else {
-				showImage(editTextUrl.text.toString())
-			}
+			if (editTextUrl.text.isNullOrBlank()) textInputLayout.error = getString(R.string.error_cant_be_blank)
+			else showImage(editTextUrl.text.toString())
 		}
 	}
 
@@ -37,5 +38,7 @@ class TestFragment : Fragment() {
 	companion object {
 
 		fun newInstance() = TestFragment()
+
+		val tabTitle = appContext.getString(R.string.tab_title_test)
 	}
 }

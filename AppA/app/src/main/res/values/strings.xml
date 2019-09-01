@@ -1,7 +1,20 @@
 <resources>
+
 	<string name="app_name">AppA</string>
 
-	<!-- TODO: Remove or change this placeholder text -->
-	<string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_newest_first">Newest first</string>
+	<string name="label_downloaded">Downloaded</string>
+	<string name="label_error">Error</string>
+	<string name="label_undefined">Undefined</string>
+	<string name="label_display_only">DisplayOnly:</string>
+	<string name="btn_reset_filter">Reset filter</string>
 	<string name="btn_toolbar_filter">Filter</string>
+	<string name="btn_open">Open</string>
+
+	<string name="hint_image_url">Image URL</string>
+
+	<string name="tab_title_test">Test</string>
+	<string name="tab_title_history">History</string>
+
+	<string name="error_cant_be_blank">This field can\'t be blank</string>
 </resources>

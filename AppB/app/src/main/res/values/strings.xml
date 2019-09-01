@@ -1,3 +1,8 @@
 <resources>
+
 	<string name="app_name">AppB</string>
+
+	<string name="label_not_standalone_app">It\'s not a standalone app. In will terminate in:</string>
+
+    <string name="toast_image_removed_from_db">"Image url: %1$s is removed from DB"</string>
 </resources>

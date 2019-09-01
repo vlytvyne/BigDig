@@ -7,9 +7,9 @@
     <data>
         <variable
             name="imageUrl"
-            type="vl.appa.ImageUrl"
+            type="vl.appa.data.models.ImageUrl"
             />
-        <import type="vl.appa.CommonConstantsKt"/>
+        <import type="vl.appa.data.constants.CommonConstantsKt"/>
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,4 +1,4 @@
-package vl.appb
+package vl.appb.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

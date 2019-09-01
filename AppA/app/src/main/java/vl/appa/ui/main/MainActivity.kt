@@ -1,10 +1,13 @@
-package vl.appa
+package vl.appa.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import vl.appa.ui.main.history.HistoryFragment
+import vl.appa.R
+import vl.appa.ui.main.test.TestFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,11 +34,10 @@ private class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
 	override fun getPageTitle(position: Int) =
 		when (position) {
-			0 -> "Test"
-			1 -> "History"
+			0 -> TestFragment.tabTitle
+			1 -> HistoryFragment.tabTitle
 			else -> throw Exception("Out of items")
 		}
-
 
 	override fun getCount() = 2
 }

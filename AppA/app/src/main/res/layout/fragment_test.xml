@@ -5,7 +5,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".TestFragment">
+	tools:context=".ui.main.test.TestFragment">
 
 	<com.google.android.material.textfield.TextInputLayout
 		android:id="@+id/textInputLayout"
@@ -25,14 +25,14 @@
 			android:id="@+id/editTextUrl"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:hint="Image URL"
+			android:hint="@string/hint_image_url"
 			/>
 
 	</com.google.android.material.textfield.TextInputLayout>
 
 	<Button
 		android:id="@+id/button"
-		android:text="Open"
+		android:text="@string/btn_open"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		app:layout_constraintEnd_toEndOf="@+id/textInputLayout"

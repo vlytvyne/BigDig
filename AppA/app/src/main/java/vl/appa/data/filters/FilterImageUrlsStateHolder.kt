@@ -1,6 +1,6 @@
-package vl.appa
+package vl.appa.data.filters
 
-object FilterStateHolder {
+object FilterImageUrlsStateHolder {
 
 	val countDisplayTypes: Int
 		get() {
@@ -11,10 +11,14 @@ object FilterStateHolder {
 			return counter
 		}
 
-	var startFromNewest: Boolean = DefaultState.startFromNewest
-	var displayDownloaded: Boolean = DefaultState.displayDownloaded
-	var displayError: Boolean = DefaultState.displayError
-	var displayUndefined: Boolean = DefaultState.displayUndefined
+	var startFromNewest: Boolean =
+		FilterImageUrlsStateHolder.DefaultState.startFromNewest
+	var displayDownloaded: Boolean =
+		FilterImageUrlsStateHolder.DefaultState.displayDownloaded
+	var displayError: Boolean =
+		FilterImageUrlsStateHolder.DefaultState.displayError
+	var displayUndefined: Boolean =
+		FilterImageUrlsStateHolder.DefaultState.displayUndefined
 
 	override fun toString(): String {
 		return "startFromNewest: $startFromNewest\n" +

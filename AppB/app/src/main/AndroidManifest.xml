@@ -6,31 +6,32 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".AppB"
+        android:name=".app.AppB"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <service
-            android:name=".RemoveImageFromDBService"
+            android:name=".services.RemoveUrlFromDBService"
             android:enabled="true"
             android:exported="false" />
 
         <provider
-            android:name=".AppBContentProvider"
+            android:name=".data.other.AppBContentProvider"
             android:authorities="vl.appb.provider"
             android:exported="true" />
 
-        <activity android:name=".ReceiverActivity">
+        <activity android:name=".ui.reciever.ReceiverActivity">
             <intent-filter>
                 <action android:name="vl.appb.SHOW_IMAGE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".DirectOpenActivity">
+        <activity android:name=".ui.directopen.DirectOpenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

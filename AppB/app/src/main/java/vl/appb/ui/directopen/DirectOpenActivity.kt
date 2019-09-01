@@ -1,11 +1,10 @@
-package vl.appb
+package vl.appb.ui.directopen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.os.Handler
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_direct_open.*
+import vl.appb.R
 
 class DirectOpenActivity : AppCompatActivity() {
 
@@ -18,6 +17,8 @@ class DirectOpenActivity : AppCompatActivity() {
 
 	override fun onResume() {
 		super.onResume()
+		textSecondsLeft.text = secondsLeft.toString()
+
 		val handler = Handler()
 
 		val tickTimer = object : Runnable {

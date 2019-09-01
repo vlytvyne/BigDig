@@ -1,14 +1,13 @@
-package vl.appb
+package vl.appb.data.database
 
 import android.database.Cursor
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteQuery
+import vl.appb.data.constants.COLUMN_ID
+import vl.appb.data.constants.COLUMN_STATUS
 
 @Dao
 interface ImageUrlDao {
-
-    @Query("SELECT * FROM image_urls")
-    fun getAllEntries(): Cursor
 
     @RawQuery
     fun rawQuery(query: SupportSQLiteQuery): Cursor

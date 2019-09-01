@@ -1,10 +1,14 @@
-package vl.appa
+package vl.appa.recyclers.adapters
 
 import android.database.Cursor
-import android.util.Log
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import vl.appa.recyclers.viewholders.UrlVH
+import vl.appa.data.constants.COLUMN_ID
+import vl.appa.data.constants.COLUMN_STATUS
+import vl.appa.data.constants.COLUMN_TIMESTAMP
+import vl.appa.data.constants.COLUMN_URL
+import vl.appa.data.models.ImageUrl
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -39,14 +43,6 @@ class UrlsAdapter: RecyclerView.Adapter<UrlVH>() {
 			holder.bind(imageUrl)
 			holder.itemView.setOnClickListener { onUrlClickListener?.invoke(url, status, id) }
 		}
-	}
-
-	private fun extractImageUrlFromCursor(cursor: Cursor): ImageUrl {
-		val url = cursor.getString(cursor.getColumnIndex(COLUMN_URL))
-		val status = cursor.getInt(cursor.getColumnIndex(COLUMN_STATUS))
-		val unixTimeStamp = cursor.getLong(cursor.getColumnIndex(COLUMN_TIMESTAMP))
-		val formattedDate = dateFormatter.format(unixTimeStamp * 1000)
-		return ImageUrl(url, status, formattedDate)
 	}
 
 }

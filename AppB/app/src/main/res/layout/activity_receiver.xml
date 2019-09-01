@@ -5,7 +5,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".ReceiverActivity">
+	tools:context=".ui.reciever.ReceiverActivity">
 
 	<TextView
 		android:id="@+id/textUrl"
@@ -38,7 +38,8 @@
 			android:layout_height="match_parent"
 			android:adjustViewBounds="false"
 			android:cropToPadding="false"
-			tools:srcCompat="@tools:sample/avatars[3]" />
+			tools:srcCompat="@tools:sample/avatars[3]"
+			tools:ignore="ContentDescription" />
 	</androidx.cardview.widget.CardView>
 
 
